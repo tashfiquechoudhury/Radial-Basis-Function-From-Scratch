@@ -96,7 +96,6 @@ t1 = data_uniform[:,1]
 
     
 """ ========================  Train the Model ============================= """
-"""This is where you call functions to train your model with different RBF kernels   """
 def fitdata(xa,ta,M):
     Xa = np.array([xa**m for m in range(M+1)]).T
     wa = np.linalg.inv(Xa.T@Xa)@Xa.T@ta
@@ -119,7 +118,6 @@ def rbf(x, s, M, even_dis=True):
     return Ey
 """ ======================== Load Test Data  and Test the Model =========================== """
 
-"""This is where you should load the testing data set. You shoud NOT re-train the model   """
 x2 = np.load('test_data.npy').T
 
 """calculating true function"""
@@ -142,8 +140,6 @@ esty = xa@wa #compute the predicted value
  
 """ ========================  Plot Results ============================== """
 
-""" This is where you should create the plots requested """
-
 """plots for same M different s"""
 for s in [0.001, 0.01, 0.1, 0.5, 2, 10]:
     M=5
@@ -161,7 +157,7 @@ for M in [2,6,9,12,16,19]:
     ErrorPlot(M=M, s=s)
 
 
-"""Additional tests conducted for assignment 1 discussion part"""
+"""Additional tests conducted"""
 #plt.figure(figsize=(8,6), dpi=80)
 #plt.title(f's={s}, M={M}')
 #plt.scatter(x1,t1, color='r', label='Train Data')
